@@ -1,0 +1,137 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contact Dave Scott Mobile Home for Sale by email. Send an enquiry or request a viewing using a ready-to-send email draft.">
+    <meta property="og:title" content="Contact | Dave Scott Mobile Home for Sale">
+    <meta property="og:description" content="Ask about a demonstration listing or share what kind of home you are looking for.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="images/logo/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title>
+      Contact | Dave Scott Mobile Home for Sale
+    </title>
+  </head>
+  <body>
+    <header id="site-header">
+    </header>
+    <main>
+      <section class="page-intro">
+        <div class="container">
+          <span class="eyebrow">WE’RE HERE TO HELP</span>
+          <h1>
+            Let’s start a conversation.
+          </h1>
+          <p>
+            Have a question about a home or want to talk through what you’re looking for? Send us a note.
+          </p>
+        </div>
+      </section>
+      <section class="container contact-layout">
+        <div class="contact-copy">
+          <span class="eyebrow">GET IN TOUCH</span>
+          <h2>
+            A helpful first step can be a simple hello.
+          </h2>
+          <p>
+            Share a little about the home you’re interested in or the kind of home you hope to find. We’ll prepare an email with your details so you can review and send it from your email app.
+          </p>
+          <div class="contact-detail">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg></span>
+            <div>
+              <small>EMAIL</small><a href="mailto:davescottmobilehomes@gmail.com">davescottmobilehomes@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9M9 20v-7h6v7"></path></svg></span>
+            <div>
+              <small>BUSINESS</small><strong>Dave Scott Mobile Home for Sale</strong>
+            </div>
+          </div>
+          <p class="muted-note">
+            No phone number or office address has been provided.
+          </p>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <span class="eyebrow">SEND AN ENQUIRY</span>
+          <h2>
+            How can we help?
+          </h2>
+          <div class="form-grid">
+            <label>
+              Full name <i>*</i>
+              <input required name="name" autocomplete="name" placeholder="Your name">
+            </label>
+            <label>
+              Email address <i>*</i>
+              <input required type="email" name="email" autocomplete="email" placeholder="you@example.com">
+            </label>
+            <label>
+              Phone number <small>(optional)</small>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="Optional">
+            </label>
+            <label>
+              Subject<select name="kind" id="contact-kind"><option value="General question">General question</option><option value="Home enquiry">Property enquiry</option><option value="Viewing request">Viewing request</option></select>
+            </label>
+            <label class="wide">
+              Property
+              <input name="property" id="contact-property" placeholder="Home name or general enquiry">
+            </label>
+            <div class="form-row-viewing wide" id="viewing-fields" hidden>
+              <label>
+                Preferred date
+                <input type="date" name="date">
+              </label>
+              <label>
+                Preferred time
+                <input type="time" name="time">
+              </label>
+            </div>
+            <label class="wide">
+              Message<textarea name="message" rows="4" placeholder="Tell us a little about what you’re looking for…"></textarea>
+            </label>
+          </div>
+          <button class="button button-primary" type="submit">
+            Prepare email <span>→</span>
+          </button>
+          <p class="form-note">
+            Your email app will open with your message ready. It is sent only if you choose to send it.
+          </p>
+          <p class="form-success" id="form-success" role="status" hidden>
+            Thank you for your interest. Your enquiry is ready to be sent to our team. We will respond once we receive it.
+          </p>
+        </form>
+      </section>
+      <section class="container contact-faq">
+        <span class="eyebrow">GOOD THINGS TO KNOW</span>
+        <h2>
+          A few quick answers
+        </h2>
+        <div class="quick-answers">
+          <p>
+            <b>Are the listings real?</b><br>Homes shown here are demonstration listings, not verified inventory.
+          </p>
+          <p>
+            <b>How do I ask about a home?</b><br>Use the enquiry form and send the prepared email from your email app.
+          </p>
+          <p>
+            <b>Can I request a viewing?</b><br>Yes. Choose “Viewing request” and include a preferred date and time.
+          </p>
+        </div>
+        <a class="text-link" href="faq.html">Read all FAQs <span>→</span></a>
+      </section>
+    </main>
+    <footer id="site-footer">
+    </footer>
+    <script defer src="data/properties.js">
+    </script>
+    <script defer src="js/main.js">
+    </script>
+    <script defer src="js/contact.js">
+    </script>
+    <script defer src="js/email-button.js">
+    </script>
+  </body>
+</html>
