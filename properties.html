@@ -1,123 +1,58 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Browse demonstration mobile and manufactured home listings. Filter by location, price, home type, bedrooms or rental and sale status.">
+    <meta name="description" content="Browse Dave Scott Mobile Home for Sale properties. Search the available homes by name, type, bedrooms or bathrooms.">
     <meta property="og:title" content="Browse Homes | Dave Scott Mobile Home for Sale">
-    <meta property="og:description" content="Explore sample mobile and manufactured homes.">
+    <meta property="og:description" content="Explore available mobile homes and contact us for details.">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="images/logo/favicon.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <title>
-      Browse Homes | Dave Scott Mobile Home for Sale
-    </title>
+    <title>Browse Homes | Dave Scott Mobile Home for Sale</title>
   </head>
   <body>
-    <header id="site-header">
-    </header>
+    <header id="site-header"></header>
     <main>
       <section class="page-intro">
         <div class="container">
           <span class="eyebrow">FIND A PLACE THAT FEELS RIGHT</span>
-          <h1>
-            Browse homes
-          </h1>
-          <p>
-            Explore sample mobile and manufactured home listings. Filter by the details that matter to you.
-          </p>
+          <h1>Browse homes</h1>
+          <p>Explore our mobile homes and contact us for more details.</p>
         </div>
       </section>
       <section class="container listing-layout">
         <aside class="filter-panel">
-          <div class="filter-title">
-            <h2>
-              Filter homes
-            </h2>
-            <button id="clear-filters" class="reset-link" type="button">
-              Clear all
-            </button>
-          </div>
+          <div class="filter-title"><h2>Filter homes</h2><button id="clear-filters" class="reset-link" type="button">Clear all</button></div>
           <form id="property-filters">
-            <label>
-              Search by name
-              <input type="search" name="q" placeholder="Try ‘Cedar Grove’">
-            </label>
-            <label>
-              Location
-              <input type="search" name="location" placeholder="City or area">
-            </label>
-            <label>
-              Home type<select name="type"><option value="">All types</option><option>Single-wide</option><option>Double-wide</option><option>Manufactured</option><option>Modular</option></select>
-            </label>
-            <label>
-              Listing type<select name="transaction"><option value="">Sale or rental</option><option value="Sale">For sale</option><option value="Rent">For rent</option></select>
-            </label>
+            <label>Search by name<input type="search" name="q" placeholder="Enter a property name"></label>
+            <label>Home type<select name="type"><option value="">All types</option><option>Single-wide</option><option>Double-wide</option><option>Mobile home</option></select></label>
             <div class="filter-row">
-              <label>
-                Min price
-                <input type="number" min="0" name="min" placeholder="$0">
-              </label>
-              <label>
-                Max price
-                <input type="number" min="0" name="max" placeholder="No max">
-              </label>
-            </div>
-            <div class="filter-row">
-              <label>
-                Bedrooms<select name="bedrooms"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
-              </label>
-              <label>
-                Bathrooms<select name="bathrooms"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option></select>
-              </label>
+              <label>Bedrooms<select name="bedrooms"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></label>
+              <label>Bathrooms<select name="bathrooms"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option></select></label>
             </div>
           </form>
         </aside>
         <section class="listing-results" aria-live="polite">
           <div class="results-toolbar">
-            <div>
-              <span class="eyebrow">THE SAMPLE COLLECTION</span>
-              <h2 id="results-count">
-                Homes to explore
-              </h2>
-            </div>
-            <label class="sort-control">
-              Sort by <select id="sort-properties"><option value="newest">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select>
-            </label>
+            <div><span class="eyebrow">OUR HOMES</span><h2 id="results-count">Homes to explore</h2></div>
+            <label class="sort-control">Sort by <select id="sort-properties"><option value="title-asc">Name: A to Z</option><option value="title-desc">Name: Z to A</option></select></label>
           </div>
-          <p class="demo-note">
-            <span class="note-dot"></span>Every listing is a demonstration. Homes, locations, prices and availability are examples.
-          </p>
-          <div id="property-grid" class="property-grid">
-          </div>
+          <div id="property-grid" class="property-grid"></div>
           <div id="no-results" class="empty-state" hidden>
             <span class="empty-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5M8 10.5h5"></path></svg></span>
-            <h3>
-              No sample homes match those filters
-            </h3>
-            <p>
-              Try changing a filter or clearing your search.
-            </p>
-            <button class="button button-primary" id="empty-reset" type="button">
-              Clear filters
-            </button>
+            <h3>No homes match those filters</h3><p>Try changing a filter or clearing your search.</p>
+            <button class="button button-primary" id="empty-reset" type="button">Clear filters</button>
           </div>
         </section>
       </section>
     </main>
-    <footer id="site-footer">
-    </footer>
-    <button class="back-top" type="button" data-back-to-top aria-label="Back to top">
-      ↑
-    </button>
-    <script defer src="data/properties.js">
-    </script>
-    <script defer src="js/main.js">
-    </script>
-    <script defer src="js/properties.js">
-    </script>
-    <script defer src="js/email-button.js">
-    </script>
+    <footer id="site-footer"></footer>
+    <button class="back-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
+    <script defer src="data/properties.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/properties.js"></script>
+    <script defer src="js/email-button.js"></script>
   </body>
 </html>

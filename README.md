@@ -1,28 +1,32 @@
 # Dave Scott Mobile Home for Sale
 
-A static, multi-page site built with HTML, CSS, and vanilla JavaScript. It has no build step or package dependencies and can be opened directly from `index.html`.
+A static, multi-page website built with HTML, CSS, and vanilla JavaScript. Open `index.html` directly or publish the project root as a static site; no build step or package installation is required.
 
-## Open the site
+## Pages and features
 
-Double-click `index.html` or open it in a browser. The shared navigation, property data, filters, galleries, FAQ accordion, saved homes, and enquiry form all use browser-native JavaScript and relative file paths.
+- Home page with property search and featured homes
+- Browse page with name, home type, bedroom, and bathroom filters
+- Individual property pages with each home's own photo gallery
+- About, FAQ, and contact pages
+- Viewing and enquiry forms that prepare an email draft for review and sending
+- Saved homes, responsive navigation, and a floating email button
+- Facebook link in the site footer and contact page
 
-The property listings are clearly labeled examples, not verified inventory. The enquiry form prepares a `mailto:` draft addressed to the business email; the visitor reviews and sends it in their own email app. Saved homes are stored in that browser's local storage.
+## Property content
+
+The seven property records are in `data/properties.js`. Their photographs and five supplied descriptions are in the corresponding `images/house1` through `images/house7` folders. House 5 and House 6 use descriptions limited to what their photographs show. House 4 currently has interior photos only in its folder; its gallery uses those photos and does not borrow an exterior from another house.
+
+Prices and locations are not stored or displayed. Add new property information in the `window.DaveScottData.properties` array, and use relative paths to that property's own image folder. Only add factual details when they have been supplied and verified.
 
 ## Publish
 
-Upload the project folder as a static site to GitHub Pages, Netlify, or Vercel. No build command is needed; use the project root as the publish directory. All page and asset links are relative, and the site does not use client-side routing.
-
-Before launch, replace the example listings and photography in `data/properties.js`, review the business details in that file, and replace the placeholder domain in `sitemap.xml` with the chosen public domain. Property photos currently use remote Pexels image URLs and show a local placeholder if an image cannot load. Confirm image suitability and attribution requirements before publishing.
+Upload the project folder to GitHub Pages, Netlify, or Vercel as a static site with the project root as the publish directory and no build command. Before publishing, replace the placeholder domain in `sitemap.xml` with the public site domain.
 
 ## Project structure
 
 - `index.html`, `properties.html`, `property-details.html`, `about.html`, `contact.html`, `faq.html`: site pages
-- `css/`: shared and responsive styles
-- `data/properties.js`: business details and sample property records
-- `js/`: navigation, property interactions, contact form, and FAQ behavior
-- `images/`: logo, favicon, property fallback image, and image directories
-- `robots.txt`, `sitemap.xml`: basic search engine files
-
-## Update property data
-
-Edit the `window.DaveScottData` object in `data/properties.js`. Each property has an ID, title, location, transaction type, home type, price, specifications, description, amenities, and an array of image URLs. Use unique IDs. Supported transaction labels are `Sale` and `Rent`; home types are shown from each record's `type` value.
+- `css/`: shared and responsive styling
+- `data/properties.js`: business details and seven property records
+- `js/`: navigation, property search and galleries, enquiry form, FAQ behavior, floating email button
+- `images/house1`–`images/house7`: property photographs and supplied descriptions
+- `images/logo/`: brand mark and favicon

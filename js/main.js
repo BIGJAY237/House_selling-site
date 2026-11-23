@@ -14,11 +14,6 @@
     share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.7 6.8-4.4M8.6 13.3l6.8 4.4"/>',
     check: '<path d="m5 12 4 4L19 6"/>'
   };
-  function money(property) {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency', currency: property.currency || 'USD', maximumFractionDigits: 0
-    }).format(property.price);
-  }
   function svg(name, size) {
     return '<svg aria-hidden="true" width="' + (size || 18) + '" height="' + (size || 18) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + (icon[name] || icon.home) + '</svg>';
   }
@@ -44,17 +39,18 @@
     return ids;
   }
   function photo(image, className) {
-    var url = image && image.src ? image.src : 'images/properties/home-placeholder.svg';
+    var url = image && image.src ? image.src : '';
     var alt = image && image.alt ? image.alt : 'Mobile home photograph';
-    return '<img class="' + (className || '') + '" src="' + url + '" alt="' + alt.replace(/"/g, '&quot;') + '" loading="lazy" onerror="this.onerror=null;this.src=\'images/properties/home-placeholder.svg\'">';
+    return '<img class="' + (className || '') + '" src="' + url + '" alt="' + alt.replace(/"/g, '&quot;') + '" loading="lazy" onerror="this.onerror=null;this.removeAttribute(\'src\');this.classList.add(\'image-unavailable\')">';
   }
   function header() {
     var active = location.pathname.split('/').pop() || 'index.html';
-    return '<div class="site-header"><div class="container nav-row"><a class="brand" href="index.html" aria-label="Dave Scott Mobile Home for Sale home"><span class="brand-mark">' + svg('home', 24) + '</span><span><strong>Dave Scott</strong><small>Mobile Home for Sale</small></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">' + svg('menu', 22) + '</button><nav id="primary-nav" class="nav-links" aria-label="Main navigation"><a ' + (active === 'index.html' ? 'aria-current="page"' : '') + ' href="index.html">Home</a><a ' + (active === 'properties.html' ? 'aria-current="page"' : '') + ' href="properties.html">Browse homes</a><a href="properties.html?transaction=Sale">For sale</a><a href="properties.html?transaction=Rent">For rent</a><a ' + (active === 'about.html' ? 'aria-current="page"' : '') + ' href="about.html">About us</a><a ' + (active === 'faq.html' ? 'aria-current="page"' : '') + ' href="faq.html">FAQs</a><a class="nav-contact" href="contact.html">Contact us ' + svg('arrow', 15) + '</a></nav></div></div>';
+    return '<div class="site-header"><div class="container nav-row"><a class="brand" href="index.html" aria-label="Dave Scott Mobile Home for Sale home"><span class="brand-mark">' + svg('home', 24) + '</span><span><strong>Dave Scott</strong><small>Mobile Home for Sale</small></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">' + svg('menu', 22) + '</button><nav id="primary-nav" class="nav-links" aria-label="Main navigation"><a ' + (active === 'index.html' ? 'aria-current="page"' : '') + ' href="index.html">Home</a><a ' + (active === 'properties.html' ? 'aria-current="page"' : '') + ' href="properties.html">Browse homes</a><a ' + (active === 'about.html' ? 'aria-current="page"' : '') + ' href="about.html">About us</a><a ' + (active === 'faq.html' ? 'aria-current="page"' : '') + ' href="faq.html">FAQs</a><a class="nav-contact" href="contact.html">Contact us ' + svg('arrow', 15) + '</a></nav></div></div>';
   }
   function footer() {
     var year = new Date().getFullYear();
-    return '<div class="footer-main container"><div class="footer-about"><a class="brand brand-light" href="index.html"><span class="brand-mark">' + svg('home', 24) + '</span><span><strong>Dave Scott</strong><small>Mobile Home for Sale</small></span></a><p>A friendly place to start your search for a home that fits your life and your budget.</p></div><div><h2>Explore</h2><a href="properties.html">Browse homes</a><a href="about.html">About us</a><a href="faq.html">Frequently asked questions</a></div><div><h2>Get in touch</h2><p>Questions about a home?</p><a class="footer-email" href="mailto:' + data.business.email + '">' + svg('mail', 16) + data.business.email + '</a><a href="contact.html">Send an enquiry ' + svg('arrow', 15) + '</a></div></div><div class="footer-bottom container"><span>© ' + year + ' ' + data.business.name + '</span><span>Demonstration listings shown for illustration.</span></div>';
+    var facebookIcon = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.43H7.08v-3.5h3.05V9.41c0-3.04 1.8-4.73 4.55-4.73 1.32 0 2.7.24 2.7.24v2.98h-1.52c-1.5 0-1.97.94-1.97 1.9v2.27h3.35l-.54 3.5h-2.81V24C19.61 23.1 24 18.1 24 12.07Z"></path></svg>';
+    return '<div class="footer-main container"><div class="footer-about"><a class="brand brand-light" href="index.html"><span class="brand-mark">' + svg('home', 24) + '</span><span><strong>Dave Scott</strong><small>Mobile Home for Sale</small></span></a><p>A friendly place to start your search for a home that fits your life and your budget.</p></div><div><h2>Explore</h2><a href="properties.html">Browse homes</a><a href="about.html">About us</a><a href="faq.html">Frequently asked questions</a></div><div><h2>Get in touch</h2><p>Questions about a home?</p><a class="footer-email" href="mailto:' + data.business.email + '">' + svg('mail', 16) + data.business.email + '</a><a href="contact.html">Send an enquiry ' + svg('arrow', 15) + '</a><a class="footer-facebook" href="' + data.business.facebook + '" target="_blank" rel="noopener noreferrer" aria-label="Visit Dave Scott Mobile Home for Sale on Facebook">' + facebookIcon + '<span>Follow us on Facebook</span></a></div></div><div class="footer-bottom container"><span>© ' + year + ' ' + data.business.name + '</span><span>Browse our available homes and contact us for details.</span></div>';
   }
   function init() {
     var headerTarget = document.getElementById('site-header');
@@ -74,6 +70,6 @@
       el.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     });
   }
-  window.DaveScottUI = { money: money, svg: svg, photo: photo, getFavorites: getFavorites, toggleFavorite: toggleFavorite };
+  window.DaveScottUI = { svg: svg, photo: photo, getFavorites: getFavorites, toggleFavorite: toggleFavorite };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 }());
